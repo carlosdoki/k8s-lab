@@ -8,6 +8,13 @@
 
 # 1. Terraform Settings Block
 terraform {
+  cloud {
+    organization = "VortexLab"
+
+    workspaces {
+      name = "k8s-lab"
+    }
+  }
   # 1. Required Version Terraform
   required_version = ">= 1.0.0"
   # 2. Required Terraform Providers  
@@ -26,14 +33,14 @@ terraform {
     }
   }
 
-# # Uncomment the following if a cluster will be managed by multiple people
-# # Terraform State Storage to Azure Storage Container, must be created from UI first
-#   backend "azurerm" {
-#     resource_group_name   = "terraform-storage-rg"
-#     storage_account_name  = "terraformstatecharleli"
-#     container_name        = "tfstatefiles"
-#     key                   = "dev.terraform.tfstate"
-#   }  
+  # # Uncomment the following if a cluster will be managed by multiple people
+  # # Terraform State Storage to Azure Storage Container, must be created from UI first
+  #   backend "azurerm" {
+  #     resource_group_name   = "terraform-storage-rg"
+  #     storage_account_name  = "terraformstatecharleli"
+  #     container_name        = "tfstatefiles"
+  #     key                   = "dev.terraform.tfstate"
+  #   }  
 }
 
 
